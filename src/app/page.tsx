@@ -8,7 +8,7 @@ import GranularSection from '@/components/granular/GranularSection';
 import VideoSection from '@/components/video/VideoSection';
 import MixerSection from '@/components/mixer/MixerSection';
 import SamplesSection from '@/components/samples/SamplesSection';
-import MarketplaceSection from '@/components/marketplace/MarketplaceSection';
+import MarketSection from '@/components/market/MarketSection';
 import ModelsSection from '@/components/models/ModelsSection';
 import StatusBar from '@/components/layout/StatusBar';
 
@@ -25,7 +25,7 @@ export default function HomePage() {
       case 'video': return <VideoSection />;
       case 'mixer': return <MixerSection />;
       case 'samples': return <SamplesSection />;
-      case 'market': return <MarketplaceSection />;
+      case 'market': return <MarketSection />;
       case 'models': return <ModelsSection />;
       default: return <Hero onNavigate={setActiveTab} />;
     }
@@ -34,7 +34,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-[#0A0A0F] flex flex-col">
       <Navbar activeTab={activeTab} onTabChange={setActiveTab} />
-      <main className="flex-1 overflow-auto">
+      <main className="flex-1 relative">
         {renderContent()}
       </main>
       <StatusBar />
